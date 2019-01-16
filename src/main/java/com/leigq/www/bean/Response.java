@@ -1,5 +1,6 @@
 package com.leigq.www.bean;
 
+import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -208,6 +209,7 @@ public class Response {
      * 修改备注： <br>
      * </p>
      */
+    @Data
     public class Meta {
     	
         /**
@@ -220,29 +222,10 @@ public class Response {
     	 */
         private String msg;
 
-		public Meta(String code, String msg) {
+		Meta(String code, String msg) {
 			super();
 			this.code = code;
 			this.msg = msg;
 		}
-
-		public String getCode() {
-			return code;
-		}
-
-		public void setCode(String code) {
-			this.code = code;
-		}
-
-		public String getMsg() {
-			return msg;
-		}
-
-		public void setMsg(String msg) {
-			this.msg = msg;
-		}
-		
     }
-    
-    
 }
