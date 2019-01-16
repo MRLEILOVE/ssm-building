@@ -2,22 +2,22 @@
 <module type="JAVA_MODULE" version="4">
   <component name="FacetManager">
     <facet type="Spring" name="Spring">
-      <configuration process_explicitly_annotated="true">
+      <configuration>
         <fileset id="web application context" name="MVC application context" removed="true">
-          <file>file://$MODULE_DIR$/../SSM/src/main/resources/spring/spring.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/spring/spring.xml</file>
         </fileset>
         <fileset id="web dispatcher servlet context" name="MVC dispatcher servlet context" removed="true">
-          <file>file://$MODULE_DIR$/../SSM/src/main/resources/spring/spring-mvc.xml</file>
-          <file>file://$MODULE_DIR$/../SSM/src/main/resources/spring/spring-mybatis.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/spring/spring-mvc.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/spring/spring-mybatis.xml</file>
         </fileset>
         <fileset id="fileset" name="Spring Application Context" removed="false">
-          <file>file://$MODULE_DIR$/../SSM/src/main/resources/spring/spring.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/spring/spring.xml</file>
         </fileset>
         <fileset id="fileset2" name="SpringMVC" removed="false">
-          <file>file://$MODULE_DIR$/../SSM/src/main/resources/spring/spring-mvc.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/spring/spring-mvc.xml</file>
         </fileset>
         <fileset id="fileset3" name="Spring-MyBatis" removed="false">
-          <file>file://$MODULE_DIR$/../SSM/src/main/resources/spring/spring-mybatis.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/spring/spring-mybatis.xml</file>
         </fileset>
       </configuration>
     </facet>
