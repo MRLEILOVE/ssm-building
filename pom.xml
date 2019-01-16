@@ -306,15 +306,13 @@
             <version>${poi.version}</version>
         </dependency>
 
-        <!-- SLF4J -->
-        <!--解决Spring使用slf4j输出日志与log4j冲突的问题-->
+        <!-- 日志具体实现 -->
+        <!--用于与slf4j保持桥接-->
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>1.7.12</version>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+            <version>${log4j.version}</version>
         </dependency>
-
-        <!-- 日志打印 -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
@@ -409,6 +407,20 @@
                 <maven.serverRootDir>SSM/</maven.serverRootDir>
                 <!-- 指定log4j日志文件写到哪个根路径下 -->
                 <maven.log4j.rootPath>D:/ServerLogs/</maven.log4j.rootPath>
+
+                <!-- 限定根日志级别、使用哪些日志记录器。注意：此处尖括号、引号要用转义字符表示 -->
+                <maven.log4j.rootLogger>
+                    &lt;Root level=&quot;INFO&quot;&gt;
+                    &lt;!--AppenderRef：Root的子节点，用来指定该日志输出到哪个Appender.--&gt;
+                    &lt;!--下面这些需要配置成多环境的--&gt;
+                    &lt;appender-ref ref=&quot;CONSOLE&quot;/&gt;
+                    &lt;appender-ref ref=&quot;DEBUG&quot;/&gt;
+                    &lt;appender-ref ref=&quot;INFO&quot;/&gt;
+                    &lt;appender-ref ref=&quot;WARN&quot;/&gt;
+                    &lt;appender-ref ref=&quot;ERROR&quot;/&gt;
+                    &lt;appender-ref ref=&quot;FATAL&quot;/&gt;
+                    &lt;/Root&gt;
+                </maven.log4j.rootLogger>
             </properties>
         </profile>
 
@@ -426,6 +438,20 @@
                 <maven.serverRootDir>SSM/</maven.serverRootDir>
                 <!-- 指定log4j日志文件写到哪个根路径下 -->
                 <maven.log4j.rootPath>D:/ServerLogs/</maven.log4j.rootPath>
+
+                <!-- 限定根日志级别、使用哪些日志记录器。注意：此处尖括号、引号要用转义字符表示 -->
+                <maven.log4j.rootLogger>
+                    &lt;Root level=&quot;WARN&quot;&gt;
+                    &lt;!--AppenderRef：Root的子节点，用来指定该日志输出到哪个Appender.--&gt;
+                    &lt;!--下面这些需要配置成多环境的--&gt;
+                    &lt;appender-ref ref=&quot;CONSOLE&quot;/&gt;
+                    &lt;appender-ref ref=&quot;DEBUG&quot;/&gt;
+                    &lt;appender-ref ref=&quot;INFO&quot;/&gt;
+                    &lt;appender-ref ref=&quot;WARN&quot;/&gt;
+                    &lt;appender-ref ref=&quot;ERROR&quot;/&gt;
+                    &lt;appender-ref ref=&quot;FATAL&quot;/&gt;
+                    &lt;/Root&gt;
+                </maven.log4j.rootLogger>
             </properties>
         </profile>
 
@@ -443,6 +469,20 @@
                 <maven.serverRootDir>SSM/</maven.serverRootDir>
                 <!-- 指定log4j日志文件写到哪个根路径下 -->
                 <maven.log4j.rootPath>D:/ServerLogs/</maven.log4j.rootPath>
+
+                <!-- 限定根日志级别、使用哪些日志记录器。注意：此处尖括号、引号要用转义字符表示 -->
+                <maven.log4j.rootLogger>
+                    &lt;Root level=&quot;WARN&quot;&gt;
+                    &lt;!--AppenderRef：Root的子节点，用来指定该日志输出到哪个Appender.--&gt;
+                    &lt;!--下面这些需要配置成多环境的--&gt;
+                    &lt;appender-ref ref=&quot;CONSOLE&quot;/&gt;
+                    &lt;appender-ref ref=&quot;DEBUG&quot;/&gt;
+                    &lt;appender-ref ref=&quot;INFO&quot;/&gt;
+                    &lt;appender-ref ref=&quot;WARN&quot;/&gt;
+                    &lt;appender-ref ref=&quot;ERROR&quot;/&gt;
+                    &lt;appender-ref ref=&quot;FATAL&quot;/&gt;
+                    &lt;/Root&gt;
+                </maven.log4j.rootLogger>
             </properties>
         </profile>
     </profiles>

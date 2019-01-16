@@ -36,6 +36,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
  */
 @EnableWebMvc // 最好加上这句
 @RestControllerAdvice
+@Slf4j
 public class GlobalExceptionHandler {
 
     /*
@@ -45,7 +46,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(MissingServletRequestParameterException.class)
     public Response handleMissingServletRequestParameterException(MissingServletRequestParameterException e) {
         String msg = "缺少请求参数！";
-//        log.error(msg, e);
+        log.error(msg, e);
         return new Response().failure(HttpStatus.BAD_REQUEST.toString(), msg, null);
     }
 
@@ -56,7 +57,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(HttpMessageNotReadableException.class)
     public Response handleHttpMessageNotReadableException(HttpMessageNotReadableException e) {
         String msg = "参数解析失败：" + e.getMessage();
-//        log.error(msg, e);
+        log.error(msg, e);
         return new Response().failure(HttpStatus.BAD_REQUEST.toString(), msg, null);
     }
 
@@ -69,7 +70,7 @@ public class GlobalExceptionHandler {
         StringBuilder sb = new StringBuilder("参数验证失败！\n");
 		handleBindingResult(e.getBindingResult(), sb);
 		String msg = sb.toString();
-//        log.error(msg, e);
+        log.error(msg, e);
         return new Response().failure(HttpStatus.BAD_REQUEST.toString(), msg, null);
     }
 
@@ -82,7 +83,7 @@ public class GlobalExceptionHandler {
         StringBuilder sb = new StringBuilder("参数绑定失败！");
 		handleBindingResult(e.getBindingResult(), sb);
 		String msg = sb.toString();
-//        log.error(msg, e);
+        log.error(msg, e);
         return new Response().failure(HttpStatus.BAD_REQUEST.toString(), msg, null);
     }
 
@@ -100,7 +101,7 @@ public class GlobalExceptionHandler {
 		}
 		
     	String msg = sb.toString();
-//        log.error(msg, e);
+        log.error(msg, e);
         return new Response().failure(HttpStatus.BAD_REQUEST.toString(), msg, null);
     }
 
@@ -111,7 +112,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(ValidationException.class)
     public Response handleValidationException(ValidationException e) {
     	String msg = "参数验证失败：" + e.getMessage();
-//        log.error(msg, e);
+        log.error(msg, e);
         return new Response().failure(HttpStatus.BAD_REQUEST.toString(), msg, null);
     }
 
@@ -122,7 +123,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(LoginException.class)
     public Response handleLoginException(LoginException e) {
     	String msg = e.getMessage();
-//        log.error(msg, e);
+        log.error(msg, e);
         return new Response().failure(HttpStatus.UNAUTHORIZED.toString(), msg, null);
     }
 
@@ -144,7 +145,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
     public Response handleHttpRequestMethodNotSupportedException(HttpRequestMethodNotSupportedException e) {
     	String msg = "不支持当前请求方法！";
-//        log.error(msg, e);
+        log.error(msg, e);
         return new Response().failure(HttpStatus.METHOD_NOT_ALLOWED.toString(), msg, null);
     }
 
@@ -155,7 +156,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(HttpMediaTypeNotSupportedException.class)
     public Response handleHttpMediaTypeNotSupportedException(Exception e) {
     	String msg = "不支持当前媒体类型！";
-//        log.error(msg, e);
+        log.error(msg, e);
         return new Response().failure(HttpStatus.UNSUPPORTED_MEDIA_TYPE.toString(), msg, null);
     }
 
@@ -166,7 +167,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(MaxUploadSizeExceededException.class)
     public Response handleMaxUploadSizeExceededException(Exception e) {
     	String msg = "所上传文件大小超过最大限制，上传失败！";
-//        log.error(msg, e);
+        log.error(msg, e);
         return new Response().failure(HttpStatus.UNPROCESSABLE_ENTITY.toString(), msg, null);
     }
     
@@ -188,7 +189,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
     public Response handleException(Exception e) {
     	String msg = "服务内部异常！";
-//        log.error(msg, e);
+        log.error(msg, e);
         return new Response().failure(HttpStatus.INTERNAL_SERVER_ERROR.toString(), msg, null);
     }
     
