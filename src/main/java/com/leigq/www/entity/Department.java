@@ -1,5 +1,6 @@
 package com.leigq.www.entity;
 
+import cn.afterturn.easypoi.excel.annotation.Excel;
 import com.leigq.www.bean.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -21,6 +22,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Data
 public class Department extends BaseEntity {
 
+    @Excel(name = "部门名称")
     @NotBlank(message = "{department_name_not_empty}")
     private String name;
 
