@@ -9,7 +9,7 @@
     </resultMap>
 
     <!--添加一个部门-->
-    <insert id="addDepartment" parameterType="Department" keyProperty="id">
+    <insert id="addDepartment" parameterType="com.leigq.www.entity.Department" keyProperty="id">
         insert into `department`
         <trim prefix="(" suffix=")" suffixOverrides="," >
             <if test="name != null and name !=''" >

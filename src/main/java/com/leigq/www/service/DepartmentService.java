@@ -1,5 +1,8 @@
 package com.leigq.www.service;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.leigq.www.entity.Department;
 import com.leigq.www.entity.Staff;
 import com.leigq.www.mapper.DepartmentMapper;
@@ -37,8 +40,13 @@ public class DepartmentService {
      * <br>创建时间： 2019-01-15 17:06
      * <br>
      */
-    public List<Staff> selectDepartments() {
-        return departmentMapper.selectDepartments();
+    public PageInfo<Department> selectDepartments(PageInfo<Department> page) {
+
+        PageHelper.startPage(page.getPageNum(), page.getPageSize());
+
+        List<Department> departments = departmentMapper.selectDepartments();
+
+        return new PageInfo<>(departments);
     }
 
     /**
@@ -59,5 +67,15 @@ public class DepartmentService {
      */
     public int addDepartment(Department department) {
         return departmentMapper.addDepartment(department);
+    }
+
+    /**
+     * 查询需导出的所有部门
+     * <br>创建人： asus
+     * <br>创建时间： 2019-01-23 10:35
+     * <br>
+     */
+    public List<Department> selectExportDepartments() {
+        return departmentMapper.selectDepartments();
     }
 }

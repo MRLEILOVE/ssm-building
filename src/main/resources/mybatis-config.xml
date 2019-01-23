@@ -17,4 +17,9 @@
         <!--设置使用log4j框架-->
         <!--<setting name="logImpl" value="LOG4J"/>-->
     </settings>
+
+    <plugins>
+        <!--MyBatis分页插件-->
+        <plugin interceptor="com.github.pagehelper.PageInterceptor"/>
+    </plugins>
 </configuration>

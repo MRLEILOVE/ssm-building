@@ -25,7 +25,7 @@ public interface DepartmentMapper {
      * <br>创建时间： 2019-01-15 17:06
      * <br>
      */
-    List<Staff> selectDepartments();
+    List<Department> selectDepartments();
 
     /**
      * 根据部门名查询单个部门
