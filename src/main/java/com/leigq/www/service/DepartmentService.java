@@ -1,10 +1,8 @@
 package com.leigq.www.service;
 
-import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.leigq.www.entity.Department;
-import com.leigq.www.entity.Staff;
 import com.leigq.www.mapper.DepartmentMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
