@@ -3,6 +3,7 @@ package com.leigq.www.controller;
 import com.leigq.www.entity.Staff;
 import com.leigq.www.service.StaffService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -35,7 +36,7 @@ public class StaffController {
      * <br>创建时间： 2019-01-15 17:40
      * <br>
      */
-    @RequestMapping("/staffs")
+    @GetMapping("/staffs")
     public List<Staff> selectStaffs() {
         return staffService.selectStaffs();
     }
