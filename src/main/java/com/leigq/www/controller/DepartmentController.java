@@ -1,22 +1,19 @@
 package com.leigq.www.controller;
 
-import com.github.pagehelper.Page;
 import com.github.pagehelper.PageInfo;
 import com.leigq.www.bean.Response;
 import com.leigq.www.entity.Department;
-import com.leigq.www.entity.Staff;
 import com.leigq.www.service.DepartmentService;
-import com.leigq.www.service.StaffService;
 import com.leigq.www.util.DateUtil;
 import com.leigq.www.util.POIUtil;
-import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**

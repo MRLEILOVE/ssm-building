@@ -31,6 +31,50 @@
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
+
+    <!--
+        druid监控视图servlet
+        参考：SSM+Druid第一次学习 -> https://www.cnblogs.com/PeterXu1997/p/9280497.html
+    -->
+    <servlet>
+        <servlet-name>druidStatView</servlet-name>
+        <servlet-class>com.alibaba.druid.support.http.StatViewServlet</servlet-class>
+        <init-param>
+            <!-- 是否允许重置数据 -->
+            <param-name>resetEnable</param-name>
+            <param-value>false</param-value>
+        </init-param>
+        <init-param>
+            <!--登陆时用户名-->
+            <param-name>loginUsername</param-name>
+            <param-value>admin</param-value>
+        </init-param>
+        <init-param>
+            <!--登陆时密码-->
+            <param-name>loginPassword</param-name>
+            <param-value>root</param-value>
+        </init-param>
+        <!--白名单-->
+        <init-param>
+            <!--登陆时密码-->
+            <param-name>allow</param-name>
+            <!--多个ip逗号隔开-->
+            <param-value>127.0.0.1</param-value>
+        </init-param>
+        <!--IP黑名单 (存在共同时，deny优先于allow) : 如果满足deny的话提示:Sorry, you are not permitted to view this page.-->
+        <init-param>
+            <!--登陆时密码-->
+            <param-name>deny</param-name>
+            <!--多个ip逗号隔开-->
+            <param-value>192.168.1.110</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>druidStatView</servlet-name>
+        <url-pattern>/druid/*</url-pattern>
+    </servlet-mapping>
+
+
     <!--编码过滤器-->
     <filter>
         <filter-name>encodingFilter</filter-name>
@@ -44,6 +88,34 @@
     </filter>
     <filter-mapping>
         <filter-name>encodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+
+    <!--
+        Druid网络统计过滤器（用于URL监控等功能）
+        参考：SSM+Druid第一次学习 -> https://www.cnblogs.com/PeterXu1997/p/9280497.html
+    -->
+    <filter>
+        <filter-name>druidWebStatFilter</filter-name>
+        <filter-class>com.alibaba.druid.support.http.WebStatFilter</filter-class>
+        <init-param>
+            <!--添加不需要忽略的格式信息-->
+            <param-name>exclusions</param-name>
+            <param-value>/public/*,*.js,*.css,/druid*,*.jsp,*.swf,*.json</param-value>
+        </init-param>
+        <init-param>
+            <param-name>principalSessionName</param-name>
+            <param-value>sessionInfo</param-value>
+        </init-param>
+        <init-param>
+            <param-name>profileEnable</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <!--添加过滤规则-->
+        <filter-name>druidWebStatFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 </web-app>
