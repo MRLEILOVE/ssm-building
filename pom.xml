@@ -21,7 +21,7 @@
         <spring.version>5.0.8.RELEASE</spring.version>
         <mybatis.version>3.4.4</mybatis.version>
         <log4j.version>2.10.0</log4j.version>
-        <jackson.version>2.9.8</jackson.version>
+        <jackson.version>2.9.9</jackson.version>
         <druid.version>1.0.29</druid.version>
     </properties>
 
