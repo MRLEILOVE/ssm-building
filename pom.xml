@@ -302,7 +302,7 @@
         <dependency>
             <groupId>org.bouncycastle</groupId>
             <artifactId>bcprov-jdk15on</artifactId>
-            <version>1.52</version>
+            <version>1.67</version>
         </dependency>
 
         <!-- 推荐使用EasyPOI,注解更简单：https://mvnrepository.com/artifact/cn.afterturn/easypoi-base -->
